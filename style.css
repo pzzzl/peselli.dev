@@ -31,15 +31,19 @@ body {
   left: 0;
   background-color: darkorange; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
+  /* padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* The navigation menu links */
 .sidenav a {
-  padding: 8px 8px 8px 32px;
+  /* padding: 8px 8px 8px 32px; */
+  margin: 5px 0;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 0.5em;
   color: black;
   display: block;
   transition: 0.3s;
@@ -219,16 +223,16 @@ a {
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media only screen and (max-height: 450px) {
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
   .sidenav {
     padding-top: 15px;
   }
   .sidenav a {
     font-size: 18px;
   }
-}
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
