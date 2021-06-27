@@ -8,8 +8,9 @@ function darkTheme() {
   // MUDA A FONTE
   document.body.style.color = "white";
   // MUDA A COR DOS ÍCONES
-  document.getElementsByClassName("svg")[0].style.filter = "invert(100)";
-  document.getElementsByClassName("svg")[1].style.filter = "invert(100)";
+  for (element of document.getElementsByClassName("svg")) {
+    element.style.filter = "invert(100)";
+  }
   // MUDA A COR DO ÍCONE DO MENU
   for (bar of document.getElementsByClassName("bar")) {
     bar.style.background = "darkorange";
@@ -28,8 +29,9 @@ function standardTheme() {
   // MUDA A FONTE
   document.body.style.color = "black";
   // MUDA A COR DOS ÍCONES
-  document.getElementsByClassName("svg")[0].style.filter = "invert(0)";
-  document.getElementsByClassName("svg")[1].style.filter = "invert(0)";
+  for (element of document.getElementsByClassName("svg")) {
+    element.style.filter = "invert(0)";
+  }
   // MUDA A COR DO ÍCONE DO MENU
   for (bar of document.getElementsByClassName("bar")) {
     bar.style.background = "black";
@@ -80,3 +82,29 @@ function contact() {
   document.getElementById("home").style.display = "none";
   document.getElementById("about").style.display = "none";
 }
+
+function translatePage(language) {
+  if (language == "en") {
+    hideAll("pt");
+    showAll("en");
+  }
+
+  if (language == "pt") {
+    hideAll("en");
+    showAll("pt");
+  }
+}
+
+function hideAll(className) {
+  for (element of document.getElementsByClassName(className)) {
+    element.style.display = "none";
+  }
+}
+
+function showAll(className) {
+  for (element of document.getElementsByClassName(className)) {
+    element.style.display = "block";
+  }
+}
+
+translatePage("en");

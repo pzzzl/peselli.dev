@@ -37,6 +37,31 @@ body {
   transition: 0.5s;
 }
 
+#translateSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#translateSection button {
+  border: none;
+  padding: 10px 0;
+  background: darkOrange;
+  border-radius: 5px;
+  margin: 5px 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  transition: 0.5s;
+  animation: showUp 5s;
+  width: 100px;
+}
+
+#translateSection button:hover {
+  background: black;
+  color: #ff8c00;
+}
+
 /* The side navigation menu */
 .sidenav {
   height: 100%; /* 100% Full-height */
@@ -203,7 +228,7 @@ input:checked + .slider:before {
   border: 2px solid orange;
   box-shadow: 1px 1px 10px rgb(125, 125, 125);
   animation-name: showUp;
-  animation-duration: 3s;
+  animation-duration: 6s;
 }
 
 .svg {
@@ -211,6 +236,7 @@ input:checked + .slider:before {
   margin: 5px;
   animation-name: showUp;
   animation-duration: 6s;
+  transition: 1s;
 }
 
 a {
