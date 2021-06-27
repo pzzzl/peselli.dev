@@ -83,15 +83,21 @@ function contact() {
   document.getElementById("about").style.display = "none";
 }
 
-function translatePage(language) {
+function translatePage(language, showMessage = true) {
   if (language == "en") {
     hideAll("pt");
     showAll("en");
+    if (showMessage) {
+      showSnackBar("Language changed");
+    }
   }
 
   if (language == "pt") {
     hideAll("en");
     showAll("pt");
+    if (showMessage) {
+      showSnackBar("Idioma alterado");
+    }
   }
 }
 
@@ -107,4 +113,19 @@ function showAll(className) {
   }
 }
 
-translatePage("en");
+function showSnackBar(message) {
+  // Get the snackbar DIV
+  var x = document.getElementById("snackbar");
+
+  x.innerText = `${message}`;
+
+  // Add the "show" class to DIV
+  x.className = "show";
+
+  // After 3 seconds, remove the show class from DIV
+  setTimeout(function () {
+    x.className = x.className.replace("show", "");
+  }, 3000);
+}
+
+translatePage("en", false);
