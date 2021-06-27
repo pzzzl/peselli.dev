@@ -21,10 +21,16 @@ body {
   text-align: center;
 }
 
-#about {
+#about,
+#contact {
   display: none;
   animation: showUp 5s;
   font-size: 0.6em;
+  max-width: 600px;
+}
+
+#contact a {
+  color: darkorange;
 }
 
 * {
@@ -198,14 +204,6 @@ input:checked + .slider:before {
   box-shadow: 1px 1px 10px rgb(125, 125, 125);
   animation-name: showUp;
   animation-duration: 3s;
-}
-
-#description {
-  font-size: 0.5em;
-  margin: 20px;
-  font-style: italic;
-  animation-name: showUp;
-  animation-duration: 5s;
 }
 
 .svg {
