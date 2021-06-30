@@ -21,12 +21,17 @@ body {
   text-align: center;
 }
 
+#mySidenav a {
+  cursor: pointer;
+}
+
 #about,
 #contact {
   display: none;
   animation: showUp 5s;
   font-size: 0.6em;
   max-width: 600px;
+  text-align: justify;
 }
 
 #contact a {
@@ -55,6 +60,7 @@ body {
   transition: 0.5s;
   animation: showUp 5s;
   width: 100px;
+  cursor: pointer;
 }
 
 #translateSection button:hover {
