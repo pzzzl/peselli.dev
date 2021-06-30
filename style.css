@@ -31,6 +31,9 @@ body {
   animation: showUp 5s;
   font-size: 0.6em;
   max-width: 600px;
+}
+
+#about {
   text-align: justify;
 }
 
