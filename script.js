@@ -136,7 +136,11 @@ function showSnackBar(message) {
 
 translatePage("en", false);
 
-document.addEventListener("click", () => {
+document.addEventListener("click", (event) => {
+  let target = event.target;
+
+  target.scrollIntoView({ block: "center" });
+
   if (CURRENT_LANGUAGE == "en") {
     document.getElementById("currentLanguage").innerText = "ENG";
   }
