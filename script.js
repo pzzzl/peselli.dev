@@ -1,3 +1,5 @@
+var CURRENT_LANGUAGE = undefined;
+
 document.addEventListener("input", (event) => {
   event.target.checked ? darkTheme() : standardTheme();
 });
@@ -85,6 +87,8 @@ function contact() {
 
 function translatePage(language, showMessage = true) {
   if (language == "en") {
+    CURRENT_LANGUAGE = language;
+
     hideAll("pt");
     showAll("en");
     if (showMessage) {
@@ -93,6 +97,8 @@ function translatePage(language, showMessage = true) {
   }
 
   if (language == "pt") {
+    CURRENT_LANGUAGE = language;
+
     hideAll("en");
     showAll("pt");
     if (showMessage) {
@@ -129,3 +135,13 @@ function showSnackBar(message) {
 }
 
 translatePage("en", false);
+
+document.addEventListener("click", () => {
+  if (CURRENT_LANGUAGE == "en") {
+    document.getElementById("currentLanguage").innerText = "ENG";
+  }
+
+  if (CURRENT_LANGUAGE == "pt") {
+    document.getElementById("currentLanguage").innerText = "POR";
+  }
+});

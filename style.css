@@ -19,7 +19,13 @@ body {
   font-size: 2em;
 
   text-align: center;
+
+  transition: background 0.5s, color 0.5s;
 }
+
+/* * {
+  outline: 1px solid #f00 !important;
+} */
 
 #mySidenav a {
   cursor: pointer;
@@ -41,9 +47,9 @@ body {
   color: darkorange;
 }
 
-* {
+/* * {
   transition: 0.5s;
-}
+} */
 
 #translateSection {
   display: flex;
@@ -52,16 +58,20 @@ body {
   align-items: center;
 }
 
+#currentLanguage {
+  font-size: 0.5em;
+  margin-top: 25px;
+  font-style: italic;
+  transition: 0s;
+}
+
 #translateSection button {
-  border: none;
+  border: 1px solid rgb(20, 20, 20);
   padding: 10px 0;
   background: darkOrange;
   border-radius: 5px;
-  margin: 5px 0;
+  margin-top: 20px;
   font-family: "Montserrat", sans-serif;
-  font-weight: bold;
-  transition: 0.5s;
-  animation: showUp 5s;
   width: 100px;
   cursor: pointer;
 }
@@ -69,6 +79,7 @@ body {
 #translateSection button:hover {
   background: black;
   color: #ff8c00;
+  font-weight: bold;
 }
 
 /* The side navigation menu */
@@ -84,6 +95,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  transition: width 0.5s, background 0.5s;
 }
 
 /* The navigation menu links */
@@ -245,7 +257,7 @@ input:checked + .slider:before {
   margin: 5px;
   animation-name: showUp;
   animation-duration: 6s;
-  transition: 1s;
+  transition: background 0.5s, color 0.5s;
 }
 
 a {
@@ -338,9 +350,9 @@ a {
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-  .sidenav {
+  /* .sidenav {
     padding-top: 15px;
-  }
+  } */
   .sidenav a {
     font-size: 18px;
   }
