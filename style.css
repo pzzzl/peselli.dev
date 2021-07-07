@@ -45,13 +45,13 @@ body {
   text-align: left;
 }
 
+#contact {
+  margin: 10px 0;
+}
+
 #contact a {
   color: darkorange;
 }
-
-/* * {
-  transition: 0.5s;
-} */
 
 #translateSection {
   display: flex;

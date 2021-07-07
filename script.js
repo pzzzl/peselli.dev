@@ -1,64 +1,72 @@
+const ENVIRONMENT = "dev";
+
 var CURRENT_LANGUAGE = undefined;
+var ENABLE_LOGS = ENVIRONMENT == "dev" ? true : false;
+const body = document.body;
+
+translatePage("en", (showMessage = false));
 
 document.addEventListener("input", (event) => {
   event.target.checked ? darkTheme() : standardTheme();
 });
 
 function darkTheme() {
-  // MUDA O BACKGROUND
-  document.body.style.background = "#111";
-  // MUDA A FONTE
-  document.body.style.color = "white";
+  changeBackground(body, "#111");
+  changeColor(body, "white");
+  // MUDA A COR DO FUNDO DO MENU
+  changeBackground($id("mySidenav"), "#222");
   // MUDA A COR DOS ÍCONES
-  for (element of document.getElementsByClassName("svg")) {
+  for (element of $class("svg")) {
     element.style.filter = "invert(100)";
   }
   // MUDA A COR DO ÍCONE DO MENU
-  for (bar of document.getElementsByClassName("bar")) {
-    bar.style.background = "darkorange";
+  for (bar of $class("bar")) {
+    changeBackground(bar, "darkorange");
   }
-  // MUDA A COR DO FUNDO DO MENU
-  document.getElementById("mySidenav").style.background = "#222";
   // MUDA A COR DA FONTE DO MENU
-  for (menu of document.getElementsByClassName("menuNames")) {
-    menu.style.color = "white";
+  for (menu of $class("menuNames")) {
+    changeColor(menu, "white");
   }
+
+  print("Dark theme enabled");
 }
 
 function standardTheme() {
-  // MUDA O BACKGROUND
-  document.body.style.background = "#eee";
-  // MUDA A FONTE
-  document.body.style.color = "black";
+  changeBackground(body, "#eee");
+  changeColor(body, "black");
+  // MUDA A COR DO FUNDO DO MENU
+  changeBackground($id("mySidenav"), "darkorange");
   // MUDA A COR DOS ÍCONES
-  for (element of document.getElementsByClassName("svg")) {
+  for (element of $class("svg")) {
     element.style.filter = "invert(0)";
   }
   // MUDA A COR DO ÍCONE DO MENU
-  for (bar of document.getElementsByClassName("bar")) {
-    bar.style.background = "black";
+  for (bar of $class("bar")) {
+    changeBackground(bar, "black");
   }
-  // MUDA A COR DO FUNDO DO MENU
-  document.getElementById("mySidenav").style.background = "darkorange";
   // MUDA A COR DA FONTE DO MENU
-  for (menu of document.getElementsByClassName("menuNames")) {
-    menu.style.color = "black";
+  for (menu of $class("menuNames")) {
+    changeColor(menu, "black");
   }
+
+  print("Dark theme disabled");
 }
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 function openNav() {
-  document.getElementById("mySidenav").style.width = "150px";
-  document.getElementById("main").style.marginRight = "150px";
+  $id("mySidenav").style.width = "150px";
+  $id("main").style.marginRight = "150px";
+  print("Nav opened");
 }
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
 function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-  document.getElementById("main").style.marginRight = "0";
+  $id("mySidenav").style.width = "0";
+  $id("main").style.marginRight = "0";
+  print("Nav closed");
 }
 
-function myFunction(x) {
+function toggleMenu(x) {
   x.classList.toggle("change");
   if (x.classList.value.includes("change")) {
     openNav();
@@ -68,27 +76,32 @@ function myFunction(x) {
 }
 
 function about() {
-  document.getElementById("about").style.display = "block";
-  document.getElementById("home").style.display = "none";
-  document.getElementById("contact").style.display = "none";
-  setTimeout(center, 250, "about");
+  $id("about").style.display = "block";
+  $id("home").style.display = "none";
+  $id("contact").style.display = "none";
+  center("about");
+  print("PAGE: about");
 }
 
 function home() {
-  document.getElementById("home").style.display = "block";
-  document.getElementById("about").style.display = "none";
-  document.getElementById("contact").style.display = "none";
-  setTimeout(center, 250, "home");
+  $id("home").style.display = "block";
+  $id("about").style.display = "none";
+  $id("contact").style.display = "none";
+  center("home");
+  print("PAGE: home");
 }
 
 function contact() {
-  document.getElementById("contact").style.display = "block";
-  document.getElementById("home").style.display = "none";
-  document.getElementById("about").style.display = "none";
-  setTimeout(center, 250, "contact");
+  $id("contact").style.display = "block";
+  $id("home").style.display = "none";
+  $id("about").style.display = "none";
+  center("contact");
+  print("PAGE: contact");
 }
 
 function translatePage(language, showMessage = true) {
+  print(`translatePage()\nlanguage: ${language}\nshowMessage: ${showMessage}`);
+
   if (language == "en") {
     CURRENT_LANGUAGE = language;
 
@@ -111,20 +124,20 @@ function translatePage(language, showMessage = true) {
 }
 
 function hideAll(className) {
-  for (element of document.getElementsByClassName(className)) {
+  for (element of $class(className)) {
     element.style.display = "none";
   }
 }
 
 function showAll(className) {
-  for (element of document.getElementsByClassName(className)) {
+  for (element of $class(className)) {
     element.style.display = "block";
   }
 }
 
 function showSnackBar(message) {
   // Get the snackbar DIV
-  var x = document.getElementById("snackbar");
+  var x = $id("snackbar");
 
   x.innerText = `${message}`;
 
@@ -137,25 +150,38 @@ function showSnackBar(message) {
   }, 3000);
 }
 
-translatePage("en", (showMessage = false));
-
 document.addEventListener("click", () => {
   if (CURRENT_LANGUAGE == "en") {
-    document.getElementById("currentLanguage").innerText = "ENG";
+    $id("currentLanguage").innerText = "ENG";
   }
   if (CURRENT_LANGUAGE == "pt") {
-    document.getElementById("currentLanguage").innerText = "POR";
+    $id("currentLanguage").innerText = "POR";
   }
 });
 
 function center(id) {
-  try {
-    document
-      .getElementById(id)
-      .scrollIntoView({ block: "center", behavior: "smooth" });
-    console.log(`${id} centered succesfully`);
-    return true;
-  } catch {
-    return false;
+  $id(id).scrollIntoView({ block: "center" });
+  print(`${id} centered succesfully`);
+}
+
+function $id(id) {
+  return document.getElementById(id);
+}
+
+function $class(className) {
+  return document.getElementsByClassName(className);
+}
+
+function print(message) {
+  if (ENABLE_LOGS) {
+    console.log(message);
   }
+}
+
+function changeBackground(element, color) {
+  element.style.background = color;
+}
+
+function changeColor(element, color) {
+  element.style.color = color;
 }
