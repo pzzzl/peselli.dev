@@ -76,27 +76,27 @@ function toggleMenu(x) {
 }
 
 function about() {
+  print("PAGE: about");
   $id("about").style.display = "block";
   $id("home").style.display = "none";
   $id("contact").style.display = "none";
-  center("about");
-  print("PAGE: about");
+  setTimeout(center, 100, "about");
 }
 
 function home() {
+  print("PAGE: home");
   $id("home").style.display = "block";
   $id("about").style.display = "none";
   $id("contact").style.display = "none";
-  center("home");
-  print("PAGE: home");
+  setTimeout(center, 100, "home");
 }
 
 function contact() {
+  print("PAGE: contact");
   $id("contact").style.display = "block";
   $id("home").style.display = "none";
   $id("about").style.display = "none";
-  center("contact");
-  print("PAGE: contact");
+  setTimeout(center, 100, "contact");
 }
 
 function translatePage(language, showMessage = true) {
