@@ -71,24 +71,21 @@ function about() {
   document.getElementById("about").style.display = "block";
   document.getElementById("home").style.display = "none";
   document.getElementById("contact").style.display = "none";
-
-  document.getElementById("main").scrollIntoView({ block: "center" });
+  setTimeout(center, 250, "about");
 }
 
 function home() {
   document.getElementById("home").style.display = "block";
   document.getElementById("about").style.display = "none";
   document.getElementById("contact").style.display = "none";
-
-  document.getElementById("main").scrollIntoView({ block: "center" });
+  setTimeout(center, 250, "home");
 }
 
 function contact() {
   document.getElementById("contact").style.display = "block";
   document.getElementById("home").style.display = "none";
   document.getElementById("about").style.display = "none";
-
-  document.getElementById("main").scrollIntoView({ block: "center" });
+  setTimeout(center, 250, "contact");
 }
 
 function translatePage(language, showMessage = true) {
@@ -143,13 +140,22 @@ function showSnackBar(message) {
 translatePage("en", (showMessage = false));
 
 document.addEventListener("click", () => {
-  document.getElementById("main").scrollIntoView({ block: "center" });
-
   if (CURRENT_LANGUAGE == "en") {
     document.getElementById("currentLanguage").innerText = "ENG";
   }
-
   if (CURRENT_LANGUAGE == "pt") {
     document.getElementById("currentLanguage").innerText = "POR";
   }
 });
+
+function center(id) {
+  try {
+    document
+      .getElementById(id)
+      .scrollIntoView({ block: "center", behavior: "smooth" });
+    console.log(`${id} centered succesfully`);
+    return true;
+  } catch {
+    return false;
+  }
+}
