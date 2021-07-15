@@ -2,32 +2,20 @@
 
 body {
   font-family: "Montserrat", sans-serif;
-
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
   width: 100vw;
   height: 100vh;
-
   background: #eee;
-
   margin: 0;
   padding: 0;
-
   font-size: 2em;
-
   text-align: center;
-
   transition: background 0.5s, color 0.5s;
-
   overflow: hidden;
 }
-
-/* * {
-  outline: 1px solid #f00 !important;
-} */
 
 #mySidenav a {
   cursor: pointer;
@@ -84,25 +72,22 @@ body {
   font-weight: bold;
 }
 
-/* The side navigation menu */
 .sidenav {
-  height: 100%; /* 100% Full-height */
-  width: 0; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
   right: 0;
-  background-color: darkorange; /* Black*/
-  overflow-x: hidden; /* Disable horizontal scroll */
+  background-color: darkorange;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   transition: width 0.5s, background 0.5s;
 }
 
-/* The navigation menu links */
 .sidenav a {
-  /* padding: 8px 8px 8px 32px; */
   margin: 20px 0;
   text-decoration: none;
   font-size: 0.5em;
@@ -110,12 +95,10 @@ body {
   display: block;
 }
 
-/* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
   font-weight: bold;
 }
 
-/* Position and style the close button (top right corner) */
 .sidenav .closebtn {
   position: absolute;
   top: 0;
@@ -124,7 +107,6 @@ body {
   margin-left: 50px;
 }
 
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
   transition: margin-right 0.5s;
   padding: 20px;
@@ -154,24 +136,20 @@ body {
   transition: 0.5s;
 }
 
-/* Rotate first bar */
 .change .bar1 {
   -webkit-transform: rotate(-45deg) translate(-7px, 5px);
   transform: rotate(-45deg) translate(-7px, 5px);
 }
 
-/* Fade out the second bar */
 .change .bar2 {
   opacity: 0;
 }
 
-/* Rotate last bar */
 .change .bar3 {
   -webkit-transform: rotate(45deg) translate(-8px, -8px);
   transform: rotate(45deg) translate(-8px, -8px);
 }
 
-/* The switch - the box around the slider */
 .switch {
   position: relative;
   display: inline-block;
@@ -183,14 +161,12 @@ body {
   animation-duration: 6s;
 }
 
-/* Hide default HTML checkbox */
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* The slider */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -229,7 +205,6 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-/* Rounded sliders */
 .slider.round {
   border-radius: 34px;
 }
@@ -275,31 +250,25 @@ a {
   }
 }
 
-/* The snackbar - position it at the bottom and in the middle of the screen */
 #snackbar {
-  visibility: hidden; /* Hidden by default. Visible on click */
-  background-color: #333; /* Black background color */
-  color: #fff; /* White text color */
-  text-align: center; /* Centered text */
-  border-radius: 2px; /* Rounded borders */
-  padding: 16px 5px; /* Padding */
-  /* position: fixed; */
-  z-index: 1; /* Add a z-index if needed */
-  bottom: 30px; /* 30px from the bottom */
+  visibility: hidden;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px 5px;
+  z-index: 1;
+  bottom: 30px;
   transition: 0s;
   font-size: 0.5em;
 }
 
-/* Show the snackbar when clicking on a button (class added with JavaScript) */
 #snackbar.show {
-  visibility: visible; /* Show the snackbar */
-  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
-  However, delay the fade out process for 2.5 seconds */
+  visibility: visible;
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
-/* Animations to fade the snackbar in and out */
 @-webkit-keyframes fadein {
   from {
     bottom: 0;
@@ -344,34 +313,23 @@ a {
   }
 }
 
-/** RESPONSIVE **/
-
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media only screen and (max-height: 450px) {
 }
 
-/* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-  /* .sidenav {
-    padding-top: 15px;
-  } */
   .sidenav a {
     font-size: 18px;
   }
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
 }
 
-/* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
 }
 
-/* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
 }
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
 }

@@ -1,8 +1,15 @@
-const ENVIRONMENT = "dev";
+const ENVIRONMENT = "prd";
 
 var CURRENT_LANGUAGE = undefined;
 var ENABLE_LOGS = ENVIRONMENT == "dev" ? true : false;
 const body = document.body;
+
+if (ENVIRONMENT == "dev") {
+  let seconds = 120;
+  let message = 'WARNING: running within "dev" environment';
+  alert(message);
+  setInterval(alert, seconds * 1000, message);
+}
 
 translatePage("en", (showMessage = false));
 
@@ -13,53 +20,41 @@ document.addEventListener("input", (event) => {
 function darkTheme() {
   changeBackground(body, "#111");
   changeColor(body, "white");
-  // MUDA A COR DO FUNDO DO MENU
   changeBackground($id("mySidenav"), "#222");
-  // MUDA A COR DOS ÍCONES
   for (element of $class("svg")) {
-    element.style.filter = "invert(100)";
+    element.style.fill = "white";
   }
-  // MUDA A COR DO ÍCONE DO MENU
   for (bar of $class("bar")) {
     changeBackground(bar, "darkorange");
   }
-  // MUDA A COR DA FONTE DO MENU
   for (menu of $class("menuNames")) {
     changeColor(menu, "white");
   }
-
   print("Dark theme enabled");
 }
 
 function standardTheme() {
   changeBackground(body, "#eee");
   changeColor(body, "black");
-  // MUDA A COR DO FUNDO DO MENU
   changeBackground($id("mySidenav"), "darkorange");
-  // MUDA A COR DOS ÍCONES
   for (element of $class("svg")) {
-    element.style.filter = "invert(0)";
+    element.style.fill = "black";
   }
-  // MUDA A COR DO ÍCONE DO MENU
   for (bar of $class("bar")) {
     changeBackground(bar, "black");
   }
-  // MUDA A COR DA FONTE DO MENU
   for (menu of $class("menuNames")) {
     changeColor(menu, "black");
   }
-
   print("Dark theme disabled");
 }
 
-/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 function openNav() {
   $id("mySidenav").style.width = "150px";
   $id("main").style.marginRight = "150px";
   print("Nav opened");
 }
 
-/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
 function closeNav() {
   $id("mySidenav").style.width = "0";
   $id("main").style.marginRight = "0";
@@ -136,15 +131,9 @@ function showAll(className) {
 }
 
 function showSnackBar(message) {
-  // Get the snackbar DIV
   var x = $id("snackbar");
-
   x.innerText = `${message}`;
-
-  // Add the "show" class to DIV
   x.className = "show";
-
-  // After 3 seconds, remove the show class from DIV
   setTimeout(function () {
     x.className = x.className.replace("show", "");
   }, 3000);
